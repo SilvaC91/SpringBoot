@@ -43,8 +43,8 @@ public class Meal_controller {
 
     @GetMapping ("/meal/price")
     public ResponseEntity<?> getMealByPrice(
-            @RequestParam("minPrice") int min,
-            @RequestParam("maxPrice") int max){
+            @RequestParam("minPrice") double min,
+            @RequestParam("maxPrice") double max){
         if(this.ms.getMealByPrice(min, max) == null){
             return ResponseEntity.badRequest().body("Pasto non trovato");
         }else{

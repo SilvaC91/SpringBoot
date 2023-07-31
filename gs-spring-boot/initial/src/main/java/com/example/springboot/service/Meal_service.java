@@ -36,7 +36,7 @@ public class Meal_service {
         return null;
     }
 
-    public Meal getMealByPrice(int min, int max){
+    public Meal getMealByPrice(double min, double max){
         List<Meal> lm = Arrays.asList();
         for (Meal m : this.mealsList) {
             if(m.getPrice() >= min && m.getPrice() <= max){
@@ -50,15 +50,29 @@ public class Meal_service {
         }
     }
 
+    public void addMeal(Meal m){
+        this.mealsList.add(m);
+    }
 
+    public void removeMeal(Meal m){
+        this.mealsList.remove(m);
+    }
 
+    public void deleteMealAbovePrice(double price) {
+        for (Meal m : this.mealsList) {
+            if (m.getPrice() > price) {
+                this.mealsList.remove(m);
+            }
+        }
+    }
 
-
-
-
-
-
-
+    public void setMealByName(String name, Meal meal){
+        for (Meal m : this.mealsList) {
+            if(m.getName() == name){
+                m = meal;
+            }
+        }
+    }
 
 
 
