@@ -53,8 +53,4 @@ public class Meal_controller_2 {
             return ResponseEntity.ok("Pasto modificato!");
         }
     }
-
-
-
-
 }
