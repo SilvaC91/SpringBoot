@@ -1,4 +1,4 @@
-package com.example.springboot.controllers;
+package com.example.springboot.controllers._01_The_first_controller__Postman__requests;
 
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Random;
 
 @RestController
-public class _01_The_first_controller__Postman__requests {
+public class First_controller {
 
     @GetMapping ("/hello")
     public String string(){

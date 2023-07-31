@@ -1,4 +1,4 @@
-package com.example.springboot.controllers;
+package com.example.springboot.model;
 
 public class Meal {
     private String name;
