@@ -1,11 +1,9 @@
-package com.example.springboot.controllers.Request_body__Post__autoserialization_issues;
+package com.example.springboot.controllers._03_Request_body__Post__autoserialization_issues;
 
 import com.example.springboot.model.Meal;
 import com.example.springboot.service.Meal_service;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 public class Meal_controller_2 {
