@@ -1,26 +1,26 @@
-package com.example.springboot.service;
+package com.example.springboot.dao;
 
 import com.example.springboot.model.Meal;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Meal_service {
+@Repository
+public class MealDao {
+    private List<Meal> mealsList = new ArrayList<>();
 
-    private List<Meal> mealsList = Arrays.asList(
-            new Meal("Tagliatelle al ragù", "Pasta sottile all'uovo con sugo di pomodoro e macinato di carne", 12 ),
-            new Meal("Rigatoni alla carbonara", "Pasta con crema di uovo e formaggio pecorino, e guanciale di maiale croccante", 10),
-            new Meal("Risotto alla monzese", "Riso allo zafferano con luganega di maiale", 12)
-    );
-
-    public List<Meal> getMeals() {
+    public List<Meal> getMeals(){
         return this.mealsList;
     }
+    public void addMeal(Meal m){
+        this.mealsList.add(m);
+    }
 
-    public Meal getMealByName(String name){
+    public Meal getMealByName(String name) {
         for (Meal m : this.mealsList) {
-            if(m.getName() == name){
+            if (m.getName() == name) {
                 return m;
             }
         }
@@ -37,7 +37,7 @@ public class Meal_service {
     }
 
     public Meal getMealByPrice(double min, double max){
-        List<Meal> lm = Arrays.asList();
+        List<Meal> lm = new ArrayList<>();
         for (Meal m : this.mealsList) {
             if(m.getPrice() >= min && m.getPrice() <= max){
                 lm.add(m);
@@ -50,30 +50,36 @@ public class Meal_service {
         }
     }
 
-    public void addMeal(Meal m){
-        this.mealsList.add(m);
+    public boolean deleteMeal(String name) {
+        for (Meal m : this.mealsList) {
+            if (m.getName() == name) {
+                this.mealsList.remove(m);
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void removeMeal(Meal m){
-        this.mealsList.remove(m);
-    }
 
-    public void deleteMealAbovePrice(double price) {
+    public boolean deleteMealAbovePrice(double price) {
         for (Meal m : this.mealsList) {
             if (m.getPrice() > price) {
                 this.mealsList.remove(m);
+                return true;
             }
         }
+        return false;
     }
 
-    public void setMealByName(String name, Meal meal){
+
+    public boolean setMealByName(String name, Meal meal){
         for (Meal m : this.mealsList) {
             if(m.getName() == name){
                 m = meal;
+                return true;
             }
         }
+        return false;
     }
-
-
 
 }

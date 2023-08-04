@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Random;
 
 @RestController
-public class First_controller {
+public class FirstController {
 
     @GetMapping ("/hello")
     public String string(){
@@ -17,7 +17,7 @@ public class First_controller {
 
     @GetMapping ("/greeting")
     public ResponseEntity <String> string2(){
-        return new ResponseEntity<>("Good afternoon!", HttpStatusCode.valueOf(200));
+        return new ResponseEntity("Good afternoon!", HttpStatusCode.valueOf(200));
     }
 
     @GetMapping ("/info")

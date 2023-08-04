@@ -32,6 +32,9 @@ public class Meal {
     }
 
     public void setPrice(double price) {
+        if(price <= 0) {
+            throw new IllegalArgumentException("Il prezzo del pasto non può essere minore o uguale a 0!");
+        }
         this.price = price;
     }
 }
