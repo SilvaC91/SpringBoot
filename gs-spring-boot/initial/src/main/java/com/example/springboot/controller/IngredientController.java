@@ -21,20 +21,17 @@ public class IngredientController {
         return ResponseEntity.ok().body("Nuovo ingrediente inserito!");
     }
 
-    //Read
     @GetMapping("/retrieve-ingredient")
     public ResponseEntity<Ingredient> getIngredientById(@RequestParam Long id){
         Ingredient ingredient = ingredientService.getIngredient(id);
         return ResponseEntity.ok().body(ingredient);
     }
 
-    //Update
     @PutMapping("/update-ingredient")
     public ResponseEntity<Ingredient> updateIngredientById(@RequestBody Ingredient ingredient, @RequestParam Long id){
         this.ingredientService.updateIngredient(id,ingredient);
         return ResponseEntity.ok().body(ingredient);
     }
-    //Delete
     @DeleteMapping("/delete-ingredient")
     public ResponseEntity<String> deleteIngredient(@RequestParam Long id){
         ingredientService.deleteIngredient(id);
