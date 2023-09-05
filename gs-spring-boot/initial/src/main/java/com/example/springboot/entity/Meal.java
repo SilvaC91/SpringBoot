@@ -1,6 +1,11 @@
-package com.example.springboot.model;
+package com.example.springboot.entity;
+import jakarta.persistence.*;
 
+@Entity
 public class Meal {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private String description;
     private double price;
@@ -10,6 +15,7 @@ public class Meal {
         this.description = description;
         this.price = price;
     }
+    public Meal(){}
 
     public String getName() {
         return name;

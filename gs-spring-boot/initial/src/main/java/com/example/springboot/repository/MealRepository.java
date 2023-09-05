@@ -1,22 +1,20 @@
-package com.example.springboot.dao;
+package com.example.springboot.repository;
 
-import com.example.springboot.model.Meal;
+import com.example.springboot.entity.Meal;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Repository
-public class MealDao {
+public interface MealRepository extends JpaRepository<Meal, Long> {
     private List<Meal> mealsList = new ArrayList<>();
 
     public List<Meal> getMeals(){
         return this.mealsList;
     }
-    public void addMeal(Meal m){
-        this.mealsList.add(m);
-    }
+
 
     public Meal getMealByName(String name) {
         for (Meal m : this.mealsList) {

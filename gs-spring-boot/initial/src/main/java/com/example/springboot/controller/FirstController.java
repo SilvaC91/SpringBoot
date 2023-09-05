@@ -1,4 +1,4 @@
-package com.example.springboot.controllers._01_The_first_controller__Postman__requests;
+package com.example.springboot.controller;
 
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
